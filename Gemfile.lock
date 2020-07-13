@@ -37,6 +37,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_storage_validations (0.8.9)
+      rails (>= 5.2.0)
     activejob (6.0.3.2)
       activesupport (= 6.0.3.2)
       globalid (>= 0.3.6)
@@ -93,6 +95,8 @@ GEM
     ffi (1.13.1)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.3)
@@ -111,6 +115,7 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
     mimemagic (0.3.5)
+    mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
@@ -233,6 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_storage_validations
   autoprefixer-rails
   bootsnap (>= 1.4.2)
   byebug
@@ -240,8 +246,10 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass
+  friendly_id (~> 5.2.4)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mini_magick (>= 4.9.5)
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails

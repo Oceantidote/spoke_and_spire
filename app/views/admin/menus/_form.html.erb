@@ -1,0 +1,16 @@
+<%= simple_form_for [:admin, @menu] do |f| %>
+    <div class="flex-btwn fs">
+      <div class="w50">
+        <%= f.input :title %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :content %>
+      <%= f.rich_text_area :content %>
+    </div>
+    <div class="form-group">
+      <%= f.label :today, label: "Use as today's menu?" %>
+      <%= f.input :today %>
+    </div>
+    <%= f.button :submit, class: "btn btn-primary mt-10" %>
+<% end %>

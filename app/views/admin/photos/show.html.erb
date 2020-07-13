@@ -1,0 +1,5 @@
+<div class="container">
+  <h1><%= @photo.title %></h1>
+  <h3><%= @photo.created_at %></h3>
+  <%= image_tag @photo.photo, alt: @photo.alt %>
+</div>

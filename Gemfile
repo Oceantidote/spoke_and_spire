@@ -29,6 +29,11 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+gem 'active_storage_validations'
+
+# Optional, to use :dimension validator or :aspect_ratio validator
+gem 'mini_magick', '>= 4.9.5'
+gem 'friendly_id', '~> 5.2.4'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

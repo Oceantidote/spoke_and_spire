@@ -1,0 +1,7 @@
+<div class="menu-card">
+  <div class="menu-title">
+    <%= menu.title %>
+  </div>
+  <div class="menu-last-used"><%= menu.last_used %></div>
+  <%= link_to "Use Now", use_today_admin_menu_path(menu) %>
+</div>

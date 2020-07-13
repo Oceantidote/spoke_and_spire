@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def menu
+    @menu = Menu.where(today: true).first
+  end
 end

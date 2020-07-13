@@ -1,0 +1,10 @@
+<div class="container">
+  <%= link_to "New Menu", new_admin_menu_path %>
+  <h2>Today's Menu:</h2>
+  <%= render "shared/menu_card", menu: @today_menu %>
+  <br>
+  <h2>All Menus</h2>
+  <% @menus.each do |menu| %>
+    <%= render "shared/menu_card", menu: menu %>
+  <% end %>
+</div>

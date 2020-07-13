@@ -1,0 +1,48 @@
+.footer {
+  min-height: 350px;
+  background: linear-gradient(#0B2446, #1B4063);
+  display: flex;
+  align-items: center;
+  padding: 50px 10px;
+  .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include for-small-devices-down {
+      flex-direction: column;
+    }
+  }
+}
+
+.footer-info-container {
+  p {
+    color: #FFF;
+  }
+  a {
+    display: block;
+    color: #FFF;
+  }
+}
+.footer-logo {
+  height: 80px;
+}
+
+.footer-info {
+  display: flex;
+  @include for-small-devices-down {
+    margin-top: 50px;
+  }
+  @include for-xsmall-phone-only {
+    flex-direction: column;
+  }
+}
+
+.footer-title {
+  letter-spacing: 2px;
+}
+
+.footer-info-links {
+  @include for-xsmall-phone-only {
+    margin-top: 25px;
+  }
+}
