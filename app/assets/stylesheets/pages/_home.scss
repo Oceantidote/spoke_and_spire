@@ -22,3 +22,264 @@
 .inherit {
   height: 100%;
 }
+.mid-logo {
+  width: 40%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  z-index: 100;
+}
+.rel {
+  position: relative;
+}
+.bottom-30 {
+  bottom: 30vh !important;
+}
+
+.cycle-holder {
+  width: 100%;
+  overflow: hidden;
+}
+@keyframes animatedImage {
+    0% { right: -100px; }
+   100% { right: calc(100vw + 100); }
+}
+
+.fat {
+  height: 10vh;
+  z-index: 20;
+  position: relative;
+  background-repeat: repeat-x;
+  animation: animatedImage 20s linear infinite;
+}
+.woman {
+  height: 10vh;
+  position: relative;
+  z-index: 15;
+  background-repeat: repeat-x;
+  animation: animatedImage 15s linear infinite;
+}
+.womanr {
+  z-index: 10;
+  height: 6vh;
+  position: relative;
+  background-repeat: repeat-x;
+  animation: animatedImager 15s linear infinite;
+}
+.pizza1 {
+  z-index: 10;
+  height: 6vh;
+  position: relative;
+  background-repeat: repeat-x;
+  animation: animatedpizza1 15s linear infinite;
+}
+
+.pizza2 {
+  z-index: 10;
+  height: 8vh;
+  position: relative;
+  background-repeat: repeat-x;
+  animation: animatedpizza2 20s linear infinite;
+}
+
+.pizza3 {
+  z-index: 10;
+  height: 10vh;
+  position: relative;
+  background-repeat: repeat-x;
+  animation: animatedpizza3 25s linear infinite;
+}
+
+.beer {
+  height: 8vh;
+
+
+}
+
+.bl {
+  transform: rotate(-30deg);
+  animation: shake 2s;
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+.br {
+  transform: rotate(30deg);
+  animation: shake2 2s;
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+.beer-holder {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.tc {
+  text-align: center;
+}
+img:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+}
+
+@keyframes shake {
+  0% { transform: translate(-10px,0,)rotate(-10deg); }
+  50% { transform: translate(20px,0,) rotate(20deg); }
+  100% { transform: translate(-10px,0,) rotate(-10deg); }
+}
+@keyframes shake2 {
+  0% { transform: translate(10px,0,) rotate(10deg); }
+  50% { transform: translate(-20px,0,) rotate(-20deg); }
+  100% { transform: translate(10px,0,) rotate(10deg); }
+}
+@keyframes animatedpizza1 {
+  0% {
+    left: -200px;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: 100vw;
+    transform: rotate(1680deg);
+  }
+}
+
+@keyframes animatedpizza2 {
+  0% {
+    left: -25vw;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: 100vw;
+    transform: rotate(1580deg);
+  }
+}
+
+@keyframes animatedpizza3 {
+  0% {
+    left: 100vw;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: -50vw;
+    transform: rotate(-1500deg);
+  }
+}
+
+@keyframes animatedImager {
+    0% { left: -200px;}
+   100% { left: 100vw;}
+}
+@keyframes animatedImage {
+    0% { left: 110vw;}
+   100% { left: -100vw;}
+}
+
+.image {
+  transition-duration: 1s;
+  &:hover {
+    ::after {
+      transform: scale(1.1);
+      z-index: 2000;
+
+    }
+  }
+  width: 100%;
+  background-size: cover;
+}
+
+.image:after {
+  content: attr(data-content);
+  display: block;
+  padding-bottom: 100%;
+}
+
+
+.pv-big {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.jc {
+  @include absCenter
+}
+.spoke-photo-show {
+  flex:1 0 auto;
+}
+.nav-link {
+  font-family: "Bree Serif";
+  margin-right: 2vw;
+}
+
+.img-hol {
+  width:100%;
+  height:80vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden
+}
+.img-hol  img{
+  flex-shrink:0;
+  -webkit-flex-shrink: 0;
+  max-width:70%;
+  max-height:90%;
+}
+
+.nodec {
+  text-decoration: none !important;
+  color: black;
+  &:hover {
+    color: blue;
+  }
+}
+.menu-section {
+  width: 100%;
+}
+.bot {
+  padding-bottom: 8.6%;
+}
+.con-hold {
+  width: 95%;
+  margin: 0 auto;
+  border-left: solid 1% white;
+  border-right: solid 1% white;
+}
+.menu-section {
+  position: relative;
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+.top {
+  width: 100%;
+}
+.mid {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.article-container {
+  overflow: hidden;
+  position: relative;
+}
+.min-height {
+  min-height: calc(100vh - 66px);
+}
+.article-img-holder {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 1s;
+}
+
+.article-img-holder:hover {
+  transform: scale(1.2);
+}
+
+
+
+
+

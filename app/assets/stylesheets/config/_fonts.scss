@@ -3,12 +3,13 @@
 
 @font-face {
   font-family: "COVENTRY";
-  src: asset-url('COVENTRY.ttf') format('truetype')
+  src: asset-url('COVENTRY.ttf') format('truetype');
+  font-weight: bold;
 }
 
 // Define fonts for body and headers
-$body-font: "COVENTRY", "Helvetica", "sans-serif";
-$headers-font: "COVENTRY", "Helvetica", "sans-serif";
+$body-font: "Bree Serif", "Helvetica", "sans-serif";
+$headers-font: "Bree Serif", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

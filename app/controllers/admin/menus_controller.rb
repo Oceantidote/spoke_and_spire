@@ -1,4 +1,5 @@
 class Admin::MenusController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :new, :index, :destroy, :update]
   before_action :set_menu, only: [:show, :edit, :destroy, :update, :use_today]
   def index
     @today_menu = Menu.where(today: true).first || Menu.first

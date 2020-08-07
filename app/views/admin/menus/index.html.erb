@@ -1,11 +1,14 @@
-<div class="container">
-  <%= link_to "New Menu", new_admin_menu_path %>
+<div class="container pt-4" style="background-color: black;">
+  <%= link_to "New Menu", new_admin_menu_path, class: "btn btn-primary" %>
+  <hr>
   <h2>Today's Menu:</h2>
-  <%= render "shared/menu_card", menu: @today_menu %>
+  <div class="tc">
+    <%= render "shared/menu_card", menu: @today_menu, small: false %>
+  </div>
   <br>
-  <h2>All Menus</h2>
+  <h2>Old Menus</h2>
   <% @menus.each do |menu| %>
-    <%= render "shared/menu_card", menu: menu %>
+    <%= render "shared/menu_card", menu: menu, small: true %>
   <% end %>
 </div>
 

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'menu', to: "pages#menu", as: :menu
   get "gallery", to: "pages#gallery"
+  resources :photos, only: [:show, :index]
   authenticate :user, ->(user) { user.admin? } do
     resources :banners
     resources :promotions

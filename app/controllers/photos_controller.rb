@@ -1,8 +1,9 @@
-class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show, :edit, :update, :destroy ]
+class PhotosController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:edit, :show, :update, :destroy ]
 
   def show
     @photo = Photo.friendly.find(params[:id])
+    @photos = Photo.order(created_at: :desc).limit(12)
   end
 
   def index
