@@ -1,0 +1,70 @@
+<div class="container">
+  <h1 class="tc p-3">Edit Homepage</h1>
+  <%= simple_form_for(@banner) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <h3>Top Carousel</h3>
+    <div class="row">
+      <div class="col-sm-12 inherit col-md-4">
+        <div class="form-inputs">
+          <%= f.association :slide_one %>
+          <%= f.input :slide_one_title %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-4">
+        <div class="form-inputs">
+          <%= f.association :slide_two %>
+          <%= f.input :slide_two_title %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-4">
+        <div class="form-inputs">
+          <%= f.association :slide_three %>
+          <%= f.input :slide_three_title %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-6">
+        <div class="form-inputs">
+          <%= f.input :card_one_title %>
+          <%= f.label :card_one_content %>
+          <%= f.rich_text_area :card_one_content %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-6">
+        <div class="form-inputs">
+          <%= f.association :card_one %>
+          <%= f.input :card_one_image_alt_text %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-6">
+        <div class="form-inputs">
+          <%= f.association :card_two %>
+          <%= f.input :card_two_image_alt_text %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-6">
+        <div class="form-inputs">
+          <%= f.input :card_two_title %>
+          <%= f.label :card_two_content %>
+          <%= f.rich_text_area :card_two_content %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-6">
+        <div class="form-inputs">
+          <%= f.input :card_three_title %>
+          <%= f.label :card_three_content %>
+          <%= f.rich_text_area :card_three_content %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-6">
+        <div class="form-inputs">
+          <%= f.association :card_three %>
+          <%= f.input :card_three_image_alt_text %>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,10 @@
-<div class="container">
-  <h1><%= @photo.title %></h1>
-  <h3><%= @photo.created_at %></h3>
-  <%= image_tag @photo.photo, alt: @photo.alt %>
+<div class="container pb-5 pt-2">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 offset-md-1">
+      <h1 class="tc"><%= @photo.title %></h1>
+      <%= image_tag @photo.photo, alt: @photo.alt, class: "spoke-photo" %>
+      <h3 class="pt-1"><%= @photo.created_at.strftime("%d-%m-%y") %></h3>
+    </div>
+
+  </div>
 </div>

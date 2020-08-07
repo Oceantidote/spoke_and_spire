@@ -1,5 +1,10 @@
 <header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <% if @current_promotion %>
+    <div class="promotion-bar">
+      <h2><%= @current_promotion.title %></h2>
+    </div>
+  <% end %>
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -7,34 +12,106 @@
     </ol>
     <div class="carousel-inner" role="listbox">
       <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('<%= asset_path('front.jpg') %>')">
+      <div class="carousel-item active" style="background-image: url('<%= url_for @banner.slide_one.photo %>')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">First Slide</h2>
-          <p class="lead">This is a description for the first slide.</p>
+          <h2 class="display-4"><%= @banner.slide_one_title %></h2>
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('<%= asset_path('cakes.jpg') %>')">
+      <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_two.photo %>')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Second Slide</h2>
-          <p class="lead">This is a description for the second slide.</p>
+          <h2 class="display-4"><%= @banner.slide_two_title %></h2>
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('<%= asset_path('plants.jpg') %>')">
+      <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_three.photo %>')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Third Slide</h2>
-          <p class="lead">This is a description for the third slide.</p>
+          <h2 class="display-4"><%= @banner.slide_three_title %></h2>
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
   </div>
 </header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="text-card">
+        <h1><%= @banner.card_one_title %></h1>
+        <%= @banner.card_one_content %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="image-card">
+        <%= image_tag @banner.card_one.photo, alt: @banner.card_one_image_alt_text, class: "spoke-photo" %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="image-card">
+        <%= image_tag @banner.card_two.photo, alt: @banner.card_two_image_alt_text, class: "spoke-photo" %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="text-card">
+        <h1><%= @banner.card_two_title %></h1>
+        <%= @banner.card_two_content %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="text-card">
+       <h1><%= @banner.card_three_title %></h1>
+        <%= @banner.card_three_content %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="image-card">
+        <%= image_tag @banner.card_three.photo, alt: @banner.card_three_image_alt_text, class: "spoke-photo" %>
+      </div>
+    </div>
+    <% if @today_menu %>
+      <div class="col-sm-12">
+        <div class="menu">
+          <%= @today_menu.content %>
+        </div>
+      </div>
+
+    <% end %>
+    <h1>Have a look at what we've been up to lately</h1>
+    <% @photos.each do |photo| %>
+      <div class="col-sm-6 col-md-4 col-lg-3 photo"></div>
+    <% end %>
+    <h1>Don't miss our upcoming events</h1>
+
+    <% @upcoming_events.each do |event| %>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="event-card">
+          <h4><%= event.title %></h4>
+          <h5>From <%= event.start_time.strftime("%d%m%y") %></h5>
+          <h5><%= event.start_time.strftime("%d%m%y") %></h5>
+          <p><%= event.description %></p>
+          <%= event.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

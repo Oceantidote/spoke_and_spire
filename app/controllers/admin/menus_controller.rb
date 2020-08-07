@@ -2,7 +2,7 @@ class Admin::MenusController < ApplicationController
   before_action :set_menu, only: [:show, :edit, :destroy, :update, :use_today]
   def index
     @today_menu = Menu.where(today: true).first || Menu.first
-    @menus = Menu.where(today: false)
+    @menus = Menu.where.not(today: true)
   end
 
   def new
@@ -23,7 +23,7 @@ class Admin::MenusController < ApplicationController
 
   def use_today
     Menu.where(today: true).update_all(today: false)
-    @menu.update(today: true)
+    @menu.update!(today: true)
     redirect_to admin_menus_path
   end
 
@@ -46,7 +46,7 @@ class Admin::MenusController < ApplicationController
   private
 
   def menu_params
-    params.require(:menu).permit(:title, :content)
+    params.require(:menu).permit(:title, :content, :today)
   end
 
   def set_menu

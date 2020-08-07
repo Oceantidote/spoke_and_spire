@@ -1,0 +1,8 @@
+<div class="row">
+  <% @photos.each do |photo| %>
+    <div class="col-md-6 col-sm-12">
+      <%= image_tag photo.photo, class: "spoke-photo" %>
+      <p><%= photo.title %></p>
+    </div>
+  <% end %>
+</div>

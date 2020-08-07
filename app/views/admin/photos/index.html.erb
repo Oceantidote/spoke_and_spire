@@ -1,9 +1,2 @@
 <%= link_to "New Photo", new_admin_photo_path, class: "btn btn-primary" %>
-<div class="row">
-  <% @photos.each do |photo| %>
-    <div class="col-md-6 col-sm-12">
-      <%= image_tag photo.photo, alt: photo.alt, class: "spoke-photo" %>
-      <p><%= photo.title %></p>
-    </div>
-  <% end %>
-</div>
+<%= render 'shared/photos' %>

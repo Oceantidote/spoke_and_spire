@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_12_184545) do
+ActiveRecord::Schema.define(version: 2020_08_07_103708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,44 @@ ActiveRecord::Schema.define(version: 2020_07_12_184545) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "banners", force: :cascade do |t|
+    t.string "slide_one_title"
+    t.string "slide_one_image_alt_text"
+    t.string "slide_two_title"
+    t.string "slide_two_image_alt_text"
+    t.string "slide_three_title"
+    t.string "slide_three_image_alt_text"
+    t.string "card_one_title"
+    t.string "card_one_image_alt_text"
+    t.string "card_two_title"
+    t.string "card_two_image_alt_text"
+    t.string "card_three_title"
+    t.string "card_three_image_alt_text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "slide_one_id"
+    t.bigint "slide_two_id"
+    t.bigint "slide_three_id"
+    t.bigint "card_one_id"
+    t.bigint "card_two_id"
+    t.bigint "card_three_id"
+    t.index ["card_one_id"], name: "index_banners_on_card_one_id"
+    t.index ["card_three_id"], name: "index_banners_on_card_three_id"
+    t.index ["card_two_id"], name: "index_banners_on_card_two_id"
+    t.index ["slide_one_id"], name: "index_banners_on_slide_one_id"
+    t.index ["slide_three_id"], name: "index_banners_on_slide_three_id"
+    t.index ["slide_two_id"], name: "index_banners_on_slide_two_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -62,7 +100,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_184545) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.datetime "last_used"
-    t.boolean "today"
+    t.boolean "today", default: false
     t.string "slug"
     t.index ["slug"], name: "index_menus_on_slug", unique: true
   end
@@ -74,6 +112,13 @@ ActiveRecord::Schema.define(version: 2020_07_12_184545) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.index ["slug"], name: "index_photos_on_slug", unique: true
+  end
+
+  create_table "promotions", force: :cascade do |t|
+    t.string "title"
+    t.string "featured"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,4 +135,10 @@ ActiveRecord::Schema.define(version: 2020_07_12_184545) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "banners", "photos", column: "card_one_id"
+  add_foreign_key "banners", "photos", column: "card_three_id"
+  add_foreign_key "banners", "photos", column: "card_two_id"
+  add_foreign_key "banners", "photos", column: "slide_one_id"
+  add_foreign_key "banners", "photos", column: "slide_three_id"
+  add_foreign_key "banners", "photos", column: "slide_two_id"
 end
