@@ -23,7 +23,6 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem "aws-sdk-s3", require: false
 gem 'aws-ses', '~> 0.4.4', require: 'aws/ses'
-gem 'mini_magick'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
