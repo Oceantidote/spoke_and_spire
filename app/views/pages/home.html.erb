@@ -1,170 +1,154 @@
-<header>
-  <div id="carouselExampleIndicators" class="carousel rel slide carousel-fade" data-ride="carousel" data-pause="false">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('<%= url_for @banner.slide_one.photo %>')">
-        <div class="carousel-caption bottom-30 d-none d-md-block">
-          <h2 class="display-4"><%= @banner.slide_one_title %></h2>
+<% if @banner %>
+  <header>
+    <div id="carouselExampleIndicators" class="carousel rel slide carousel-fade" data-ride="carousel" data-pause="false">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('<%= url_for @banner.slide_one.photo %>')">
+          <div class="carousel-caption bottom-30 d-none d-md-block">
+            <h2 class="display-4"><%= @banner.slide_one_title %></h2>
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_two.photo %>')">
+          <div class="carousel-caption bottom-30 d-none d-md-block">
+            <h2 class="display-4"><%= @banner.slide_two_title %></h2>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_three.photo %>')">
+          <div class="carousel-caption bottom-30 d-none d-md-block">
+            <h2 class="display-4"><%= @banner.slide_three_title %></h2>
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_four.photo %>')">
+          <div class="carousel-caption bottom-30 d-none d-md-block">
+            <h2 class="display-4"><%= @banner.slide_four_title %></h2>
+          </div>
         </div>
       </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_two.photo %>')">
-        <div class="carousel-caption bottom-30 d-none d-md-block">
-          <h2 class="display-4"><%= @banner.slide_two_title %></h2>
+      <%= image_tag "the-spire-and-spoke-logo-white-and-trans.png", alt: "The Spire and Spoke", class: "mid-logo" %>
+    </div>
+  </header>
+  <% if @current_promotion %>
+    <div class="promotion-bar promtion">
+      <h1 class="tc"><%= @current_promotion.title %></h1>
+    </div>
+  <% end %>
+  <div class="cycle-holder pt-2 pb-4">
+    <div class="waves"></div>
+    <%= image_tag "woman_cyclist.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "woman" %>
+    <%= image_tag "woman_cycling.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "womanr" %>
+    <%= image_tag "fat_cyclist.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "fat" %>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
+       data-aos-easing="linear"
+       data-aos-duration="1500">
+        <div class="text-card tc m-4">
+          <h1><%= @banner.card_one_title %></h1>
+          <%= @banner.card_one_content %>
         </div>
       </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_three.photo %>')">
-        <div class="carousel-caption bottom-30 d-none d-md-block">
-          <h2 class="display-4"><%= @banner.slide_three_title %></h2>
-        </div>
-      </div>
-      <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_four.photo %>')">
-        <div class="carousel-caption bottom-30 d-none d-md-block">
-          <h2 class="display-4"><%= @banner.slide_four_title %></h2>
+      <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
+       data-aos-easing="linear"
+       data-aos-duration="1500">
+        <div class="image-card m-4">
+          <%= image_tag @banner.card_one.photo, alt: @banner.card_one_image_alt_text, title: @banner.card_one_image_alt_text, class: "spoke-photo" %>
         </div>
       </div>
     </div>
-    <%= image_tag "the-spire-and-spoke-logo-white-and-trans.png", alt: "The Spire and Spoke", class: "mid-logo" %>
   </div>
-</header>
-<% if @current_promotion %>
-  <div class="promotion-bar promtion">
-    <h1 class="tc"><%= @current_promotion.title %></h1>
+  <div class="cycle-holder pv-big">
+    <%= image_tag "pizza.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "pizza1" %>
+    <%= image_tag "pizza.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "pizza2" %>
+    <%= image_tag "pizza.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "pizza3" %>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
+       data-aos-easing="linear"
+       data-aos-duration="1500">
+        <div class="image-card m-4">
+          <%= image_tag @banner.card_two.photo, alt: @banner.card_two_image_alt_text, title: @banner.card_two_image_alt_text, class: "spoke-photo" %>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
+       data-aos-easing="linear"
+       data-aos-duration="1500">
+        <div class="text-card tc m-4">
+          <h1><%= @banner.card_two_title %></h1>
+          <%= @banner.card_two_content %>
+        </div>
+      </div>
+      <div class="beer-holder pv-big">
+        <div  data-aos="fade-up-right" data-aos-easing="linear" data-aos-duration="1500">
+           <img src="<%= asset_path('flipbeer.png') %> " class="beer bl" alt="Beer">
+        </div>
+        <div style="width: 40px;"></div>
+        <div  data-aos="fade-up-left" data-aos-easing="linear" data-aos-duration="1500">
+          <img src="<%= asset_path('beer.png') %> " class="beer br" alt="Beer">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
+       data-aos-easing="linear"
+       data-aos-duration="1500">
+        <div class="text-card tc m-4">
+         <h1><%= @banner.card_three_title %></h1>
+          <%= @banner.card_three_content %>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mt-4" data-aos="fade"
+       data-aos-easing="linear"
+       data-aos-duration="1500">
+        <div class="image-card m-4">
+          <%= image_tag @banner.card_three.photo, alt: @banner.card_three_image_alt_text, title: @banner.card_three_image_alt_text, class: "spoke-photo" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pv-big">
+    <h1 class="tc pv-big"><span class="mr-4">😊 </span> This is what life here looks like <span class="ml-4"> 😊</span></h1>
+    <div class="row pv-big">
+      <% @photos.each do |photo| %>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 p-0">
+          <%= link_to photo_path(photo) do  %>
+            <div class="article-container">
+                <div class="article-img-holder image" title="<%= photo.title %>" style="background-image: url(<%= url_for photo.photo %>)"></div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <h1 class="tc pv-big"><span class="mr-4">📅 </span> Here are our events we have coming up  <span class="ml-4"> 📅</span></h1>
+    <div class="row pv-big">
+      <% @upcoming_events.each do |event| %>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">
+          <%= link_to event_path(event) do  %>
+            <div class="article-container">
+              <div class="article-img-holder image" style="background-image: url(<%= url_for event.photos.first %>)"></div>
+              <div class="event-title">
+                <h3><%= event.title %></h3>
+                <h5><%= event.good_title %></h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="pv-mid">
+      <h1 class="tc">If you want to reach us..</h1>
+      <div class="jc">
+        <div class="point">
+          <h1>👇</h1>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
-<div class="cycle-holder pt-2 pb-4">
-  <div class="waves"></div>
-  <%= image_tag "woman_cyclist.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "woman" %>
-  <%= image_tag "woman_cycling.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "womanr" %>
-  <%= image_tag "fat_cyclist.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "fat" %>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-      <div class="text-card tc m-4">
-        <h1><%= @banner.card_one_title %></h1>
-        <%= @banner.card_one_content %>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-      <div class="image-card m-4">
-        <%= image_tag @banner.card_one.photo, alt: @banner.card_one_image_alt_text, title: @banner.card_one_image_alt_text, class: "spoke-photo" %>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="cycle-holder pv-big">
-  <%= image_tag "pizza.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "pizza1" %>
-  <%= image_tag "pizza.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "pizza2" %>
-  <%= image_tag "pizza.png", alt: "Female cyclists make it look easy", title: "Female cyclists make it look easy", class: "pizza3" %>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-      <div class="image-card m-4">
-        <%= image_tag @banner.card_two.photo, alt: @banner.card_two_image_alt_text, title: @banner.card_two_image_alt_text, class: "spoke-photo" %>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-      <div class="text-card tc m-4">
-        <h1><%= @banner.card_two_title %></h1>
-        <%= @banner.card_two_content %>
-      </div>
-    </div>
-    <div class="beer-holder pv-big">
-      <div  data-aos="fade-up-right" data-aos-easing="linear" data-aos-duration="1500">
-         <img src="<%= asset_path('flipbeer.png') %> " class="beer bl" alt="Beer">
-      </div>
-      <div style="width: 40px;"></div>
-      <div  data-aos="fade-up-left" data-aos-easing="linear" data-aos-duration="1500">
-        <img src="<%= asset_path('beer.png') %> " class="beer br" alt="Beer">
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-6 mt-4" data-aos="fade-up"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-      <div class="text-card tc m-4">
-       <h1><%= @banner.card_three_title %></h1>
-        <%= @banner.card_three_content %>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-6 mt-4" data-aos="fade"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-      <div class="image-card m-4">
-        <%= image_tag @banner.card_three.photo, alt: @banner.card_three_image_alt_text, title: @banner.card_three_image_alt_text, class: "spoke-photo" %>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container pv-big">
-  <h1 class="tc pv-big"><span class="mr-4">😊 </span> This is what life here looks like <span class="ml-4"> 😊</span></h1>
-  <div class="row pv-big">
-    <% @photos.each do |photo| %>
-      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 p-0">
-        <%= link_to photo_path(photo) do  %>
-          <div class="article-container">
-              <div class="article-img-holder image" title="<%= photo.title %>" style="background-image: url(<%= url_for photo.photo %>)"></div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <h1 class="tc pv-big"><span class="mr-4">📅 </span> Here are our events we have coming up  <span class="ml-4"> 📅</span></h1>
-  <div class="row pv-big">
-    <% @upcoming_events.each do |event| %>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">
-        <%= link_to event_path(event) do  %>
-          <div class="article-container">
-            <div class="article-img-holder image" style="background-image: url(<%= url_for event.photos.first %>)"></div>
-            <div class="event-title">
-              <h3><%= event.title %></h3>
-              <h5><%= event.good_title %></h5>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <div class="pv-mid">
-    <h1 class="tc">If you want to reach us..</h1>
-    <div class="jc">
-      <div class="point">
-        <h1>👇</h1>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
