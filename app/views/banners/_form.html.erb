@@ -5,22 +5,28 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <h3>Top Carousel</h3>
     <div class="row">
-      <div class="col-sm-12 inherit col-md-4">
+      <div class="col-sm-12 inherit col-md-3">
         <div class="form-inputs">
           <%= f.association :slide_one %>
           <%= f.input :slide_one_title %>
         </div>
       </div>
-      <div class="col-sm-12 inherit col-md-4">
+      <div class="col-sm-12 inherit col-md-3">
         <div class="form-inputs">
           <%= f.association :slide_two %>
           <%= f.input :slide_two_title %>
         </div>
       </div>
-      <div class="col-sm-12 inherit col-md-4">
+      <div class="col-sm-12 inherit col-md-3">
         <div class="form-inputs">
           <%= f.association :slide_three %>
           <%= f.input :slide_three_title %>
+        </div>
+      </div>
+      <div class="col-sm-12 inherit col-md-3">
+        <div class="form-inputs">
+          <%= f.association :slide_four %>
+          <%= f.input :slide_four_title %>
         </div>
       </div>
       <div class="col-sm-12 inherit col-md-6">
@@ -30,16 +36,17 @@
           <%= f.rich_text_area :card_one_content %>
         </div>
       </div>
+
       <div class="col-sm-12 inherit col-md-6">
         <div class="form-inputs">
-          <%= f.association :card_one %>
-          <%= f.input :card_one_image_alt_text %>
+          <%= f.association :card_one, label: "First Image" %>
+          <%= f.input :card_one_image_alt_text, label: "Alt text SEO targeted keywords" %>
         </div>
       </div>
       <div class="col-sm-12 inherit col-md-6">
         <div class="form-inputs">
-          <%= f.association :card_two %>
-          <%= f.input :card_two_image_alt_text %>
+          <%= f.association :card_two, label: "Second Image" %>
+          <%= f.input :card_two_image_alt_text, label: "Alt text SEO targeted keywords" %>
         </div>
       </div>
       <div class="col-sm-12 inherit col-md-6">
@@ -58,13 +65,13 @@
       </div>
       <div class="col-sm-12 inherit col-md-6">
         <div class="form-inputs">
-          <%= f.association :card_three %>
-          <%= f.input :card_three_image_alt_text %>
+          <%= f.association :card_three, label: "Third Image" %>
+          <%= f.input :card_three_image_alt_text, label: "Alt text SEO targeted keywords" %>
         </div>
       </div>
     </div>
-    <div class="form-actions">
-      <%= f.button :submit %>
+    <div class="form-actions pv-mid">
+      <%= f.button :submit, class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>

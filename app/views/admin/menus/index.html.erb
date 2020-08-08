@@ -1,4 +1,4 @@
-<div class="container pt-4" style="background-color: black;">
+<div class="container-fluid pv-mid" style="background-color: #e0fbff; height: 100vh;">
   <%= link_to "New Menu", new_admin_menu_path, class: "btn btn-primary" %>
   <hr>
   <h2>Today's Menu:</h2>
@@ -7,8 +7,12 @@
   </div>
   <br>
   <h2>Old Menus</h2>
-  <% @menus.each do |menu| %>
-    <%= render "shared/menu_card", menu: menu, small: true %>
+  <% if @menus.empty? %>
+    <h4>No other menus</h4>
+  <% else %>
+    <% @menus.each do |menu| %>
+      <%= render "shared/menu_card", menu: menu, small: true %>
+    <% end %>
   <% end %>
 </div>
 

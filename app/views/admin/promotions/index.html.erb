@@ -1,0 +1,19 @@
+
+<div class="container min-height">
+  <div class="row">
+  <div class="col-sm-12 col-md-6 offset-md-3 pt-4">
+    <%= link_to "New Promotion", new_admin_promotion_path, class: "btn btn-primary" %>
+    <ul class="pt-4">
+      <% if @featured_promotion %>
+        <h2>LIVE</h2>
+        <li><%= @featured_promotion.title %> <%= link_to "edit", edit_admin_promotion_path(@featured_promotion)  %></li>
+      <% end %>
+      <% if @promotions.present? %>
+        <h2>Dormant</h2>
+        <% @promotions.order(featured: :desc).each do |promotion| %>
+          <li><%= promotion.title %> <%= link_to "edit", edit_admin_promotion_path(promotion)  %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

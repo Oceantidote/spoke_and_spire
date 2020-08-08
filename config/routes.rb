@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   resources :photos, only: [:show, :index]
   authenticate :user, ->(user) { user.admin? } do
     resources :banners
-    resources :promotions
-    resources :events
     namespace :admin do
       resources :photos
+      resources :promotions
       resources :menus do
         member do
           patch :use_today
@@ -17,5 +16,6 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :events
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

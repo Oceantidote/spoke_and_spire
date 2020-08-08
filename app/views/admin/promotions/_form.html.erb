@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, @promotion] do |f| %>
+    <div class="flex-btwn fs">
+      <div class="w50">
+        <%= f.input :title %>
+        <%= f.input :featured, as: :radio_buttons %>
+      </div>
+    </div>
+    <%= f.button :submit, class: "btn btn-primary mt-10" %>
+<% end %>

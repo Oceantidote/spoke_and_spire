@@ -8,8 +8,31 @@
   -o-background-size: cover;
   background-size: cover;
 }
+.promotion-bar {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  animation: pulse 1s infinite;
+  transform: scale(1)
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
 .tc {
   text-align: center;
+}
+.pv-mid {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .form-inputs {
   background-color: #ebebeb;
@@ -50,7 +73,7 @@
   z-index: 20;
   position: relative;
   background-repeat: repeat-x;
-  animation: animatedImage 20s linear infinite;
+  animation: animatedImagef 20s linear infinite;
 }
 .woman {
   height: 10vh;
@@ -60,8 +83,9 @@
   animation: animatedImage 15s linear infinite;
 }
 .womanr {
+  margin-top: -10px;
   z-index: 10;
-  height: 6vh;
+  height: 7vh;
   position: relative;
   background-repeat: repeat-x;
   animation: animatedImager 15s linear infinite;
@@ -73,7 +97,19 @@
   background-repeat: repeat-x;
   animation: animatedpizza1 15s linear infinite;
 }
-
+.jc {
+  padding-top: 5rem;
+  @include absCenter
+}
+.point {
+  h1 {
+    font-size: 8rem !important;
+  }
+  transform: rotate(-45deg);
+  @include for-small-devices-down {
+    transform: rotate(0)
+  }
+}
 .pizza2 {
   z-index: 10;
   height: 8vh;
@@ -168,10 +204,13 @@ img:hover {
    100% { left: 100vw;}
 }
 @keyframes animatedImage {
-    0% { left: 110vw;}
+    0% { left: 150vw;}
    100% { left: -100vw;}
 }
-
+@keyframes animatedImagef {
+    0% { left: 105vw;}
+   100% { left: -100vw;}
+}
 .image {
   transition-duration: 1s;
   &:hover {
@@ -194,6 +233,9 @@ img:hover {
 
 .pv-big {
   padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.pb-5 {
   padding-bottom: 5rem;
 }
 .jc {
@@ -259,9 +301,28 @@ img:hover {
   left: 0;
   right: 0;
 }
+.event-title {
+  opacity: 0;
+  color: white !important;
+  text-decoration: none;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
 .article-container {
+  white-space: nowrap;
+  text-overflow: ellipsis;
   overflow: hidden;
   position: relative;
+  &:hover {
+    .event-title {
+      opacity: 1;
+    }
+  }
 }
 .min-height {
   min-height: calc(100vh - 66px);

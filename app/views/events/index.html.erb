@@ -1,33 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-12 col-md-10 offset-md-1">
+    <h1>Events</h1>
 
-<h1>Events</h1>
+    <table>
+      <thead>
+        <tr>
+          <th style="padding: 5px;">Start time</th>
+          <th style="padding: 5px;">End time</th>
+          <th style="padding: 5px;">Title</th>
+          <th style="padding: 5px;">Description</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Start time</th>
-      <th>End time</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td style="padding: 5px;"><%= event.start_time %></td>
+            <td style="padding: 5px;"><%= event.end_time %></td>
+            <td style="padding: 5px;"><%= event.title %></td>
+            <td style="padding: 5px;"><%= event.description %></td>
+            <td style="padding: 5px;"><%= link_to 'Show', event %></td>
+            <td style="padding: 5px;"><%= link_to 'Edit', edit_event_path(event) %></td>
+            <td style="padding: 5px;"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <br>
 
-<br>
+    <%= link_to 'New Event', new_event_path, class: "btn btn-primary" %>
+  </div>
+</div>
 
-<%= link_to 'New Event', new_event_path %>

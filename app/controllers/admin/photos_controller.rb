@@ -22,6 +22,7 @@ class Admin::PhotosController < ApplicationController
   end
 
   def edit
+    @photos = Photo.all
   end
 
   def update

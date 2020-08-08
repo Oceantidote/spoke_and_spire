@@ -2,12 +2,18 @@
 <%= simple_form_for(@event) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
   <div class="form-inputs">
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
+    <input type="date" name="event[start_time]" value="20<%= @event.start_time&.strftime('%y-%m-%d') %>">
+    <input type="date" name="event[end_time]" value="20<%= @event.end_time&.strftime('%y-%m-%d') %>">
     <%= f.input :title %>
     <%= f.input :description %>
+    <%= f.rich_text_area :content %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <% if @event.photos.any? %>
+      <% @event.photos.each do |photo| %>
+        <%= image_tag photo, width: 100 %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="form-actions">

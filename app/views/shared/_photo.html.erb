@@ -1,5 +1,7 @@
 <div class="container pb-5 pt-2">
-  <h1 class="tc"><%= link_to "< ", photo_path(Photo.order(created_at: :desc).to_a[Photo.order(created_at: :desc).to_a.index(@photo) - 1] || Photo.last), class: "nodec" %> <%= @photo.title %> <%= link_to " >", photo_path(Photo.order(created_at: :desc).to_a[Photo.order(created_at: :desc).to_a.index(@photo) + 1] || Photo.order(created_at: :desc).first), class: "nodec" %></h1>
+  <% unless single %>
+    <h1 class="tc"><%= link_to "< ", photo_path(Photo.order(created_at: :desc).to_a[Photo.order(created_at: :desc).to_a.index(@photo) - 1] || Photo.last), class: "nodec" %> <%= @photo.title %> <%= link_to " >", photo_path(Photo.order(created_at: :desc).to_a[Photo.order(created_at: :desc).to_a.index(@photo) + 1] || Photo.order(created_at: :desc).first), class: "nodec" %></h1>
+  <% end %>
   <div class="img-hol">
     <%= image_tag @photo.photo, alt: @photo.alt %>
   </div>
@@ -7,10 +9,18 @@
   <div class="row pv-big">
     <% @photos.each do |photo| %>
       <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 p-0">
-        <%= link_to photo_path(photo) do  %>
-          <div class="article-container">
-              <div class="article-img-holder image" title="<%= photo.title %>" style="background-image: url(<%= url_for photo.photo %>)"></div>
-          </div>
+        <% if single %>
+          <%= link_to edit_admin_photo_path(photo) do  %>
+            <div class="article-container">
+                <div class="article-img-holder image" title="<%= photo.title %>" style="background-image: url(<%= url_for photo.photo %>)"></div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to photo_path(photo) do  %>
+            <div class="article-container">
+                <div class="article-img-holder image" title="<%= photo.title %>" style="background-image: url(<%= url_for photo.photo %>)"></div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     <% end %>

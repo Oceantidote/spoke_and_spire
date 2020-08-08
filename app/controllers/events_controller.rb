@@ -1,15 +1,17 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :new, :destroy, :update]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where("end_time > ?", Time.now)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @upcoming_events = Event.where("end_time > ?", Time.now).where.not(id: @event.id)
   end
 
   # GET /events/new
@@ -25,15 +27,10 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      redirect_to @event
+    else
+      render :new
     end
   end
 
@@ -64,11 +61,11 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:start_time, :end_time, :title, :description)
+      params.require(:event).permit(:start_time, :end_time, :title, :description, :content, photos: [])
     end
 end

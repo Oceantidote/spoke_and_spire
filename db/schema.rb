@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_202441) do
+ActiveRecord::Schema.define(version: 2020_08_07_234809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,9 +67,12 @@ ActiveRecord::Schema.define(version: 2020_08_07_202441) do
     t.bigint "card_one_id"
     t.bigint "card_two_id"
     t.bigint "card_three_id"
+    t.bigint "slide_four_id"
+    t.string "slide_four_title"
     t.index ["card_one_id"], name: "index_banners_on_card_one_id"
     t.index ["card_three_id"], name: "index_banners_on_card_three_id"
     t.index ["card_two_id"], name: "index_banners_on_card_two_id"
+    t.index ["slide_four_id"], name: "index_banners_on_slide_four_id"
     t.index ["slide_one_id"], name: "index_banners_on_slide_one_id"
     t.index ["slide_three_id"], name: "index_banners_on_slide_three_id"
     t.index ["slide_two_id"], name: "index_banners_on_slide_two_id"
@@ -82,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_202441) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_events_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -116,9 +121,9 @@ ActiveRecord::Schema.define(version: 2020_08_07_202441) do
 
   create_table "promotions", force: :cascade do |t|
     t.string "title"
-    t.string "featured"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "featured", default: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -138,6 +143,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_202441) do
   add_foreign_key "banners", "photos", column: "card_one_id"
   add_foreign_key "banners", "photos", column: "card_three_id"
   add_foreign_key "banners", "photos", column: "card_two_id"
+  add_foreign_key "banners", "photos", column: "slide_four_id"
   add_foreign_key "banners", "photos", column: "slide_one_id"
   add_foreign_key "banners", "photos", column: "slide_three_id"
   add_foreign_key "banners", "photos", column: "slide_two_id"

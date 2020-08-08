@@ -1,24 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= render "shared/event" %>
+<div class="container pb-5 mb-4">
+  <h1 class="tc pv-big">More upcoming events</h1>
+  <div class="row">
+    <% @upcoming_events.each do |event| %>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">
+        <%= link_to event_path(event) do  %>
+          <div class="article-container">
+            <div class="article-img-holder image" style="background-image: url(<%= url_for event.photos.first %>)"></div>
+            <div class="event-title">
+              <h3><%= event.title %></h3>
+              <h5><%= event.good_title %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

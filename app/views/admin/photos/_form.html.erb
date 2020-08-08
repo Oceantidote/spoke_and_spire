@@ -1,16 +1,23 @@
-<%= simple_form_for [:admin, @photo] do |f| %>
-    <div class="flex-btwn fs">
-      <div class="w50 pt-30 photo-hol form-group">
+<div class="row">
+  <div class="col-sm-12 col-md-6 offset-md-3">
+    <%= simple_form_for [:admin, @photo] do |f| %>
+        <div class="flex-btwn fs">
+          <div class="w50 pt-30 photo-hol form-group">
+            <p>Photo</p>
+            <%= f.file_field :photo, required: true%>
+          </div>
+          <div class="w50">
+            <%= f.input :title %>
+            <%= f.input :alt %>
+          </div>
+        </div>
+        <%= f.button :submit, class: "btn btn-primary mt-10" %>
         <% if @photo.photo.attached? %>
-          <%= image_tag @photo.photo, alt: "alttext", class: "w80" %>
+          <div class="img-hol">
+            <%= image_tag @photo.photo, alt: @photo.alt %>
+          </div>
         <% end %>
-        <p>Photo</p>
-        <%= f.file_field :photo, required: true%>
-      </div>
-      <div class="w50">
-        <%= f.input :title %>
-        <%= f.input :alt %>
-      </div>
-    </div>
-    <%= f.button :submit, class: "btn btn-primary mt-10" %>
-<% end %>
+    <% end %>
+
+  </div>
+</div>
