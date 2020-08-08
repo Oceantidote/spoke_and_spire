@@ -2,6 +2,7 @@
   <% if !small %>
     <div class="menu-holder">
       <%= image_tag "manu-back-head.png", alt: "Spoke and spire", class: "top" %>
+      <h1 style="color: white;" class="pv-mid"><%= menu.title.capitalize %></h1>
       <div class="menu-section">
         <div class="con-hold">
           <h4 style="color: white;">
@@ -11,12 +12,5 @@
       </div>
       <%= image_tag "menu-back-bottom.png", alt: "Spoke and spire", class: "top" %>
     </div>
-  <% else %>
-    <% if current_user %>
-      <div class="jc">
-        <div class="menu-last-used"><%= menu.last_used %></div>
-        <%= link_to "Use Now", use_today_admin_menu_path(menu), method: :patch %>
-      </div>
-    <% end %>
   <% end %>
 </div>

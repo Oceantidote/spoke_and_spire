@@ -13,7 +13,10 @@ class Admin::MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     if @menu.save
-      redirect_to admin_menu_path(@menu)
+      if @menu.today
+        Menu.where.not(id: @menu.id).where(today: true).update_all(today: false)
+      end
+      redirect_to admin_menus_path
     else
       render :new
     end
@@ -33,7 +36,10 @@ class Admin::MenusController < ApplicationController
 
   def update
     if @menu.update!(menu_params)
-      redirect_to edit_admin_menu_path(@menu)
+      if @menu.today
+        Menu.where.not(id: @menu.id).where(today: true).update_all(today: false)
+      end
+      redirect_to edit_admin_menus_path
     else
       render :edit
     end
