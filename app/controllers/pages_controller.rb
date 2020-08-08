@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def menu
-    @menu = Menu.where(today: true).first
+    @menu = Menu.where(today: true).first || Menu.order(created_at: :desc).first
   end
 
   def gallery
