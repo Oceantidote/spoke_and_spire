@@ -10,6 +10,8 @@ class Admin::PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
+    mini_image = MiniMagick::Image.new(photo_params[:photo].tempfile.path)
+    mini_image.resize '1200x1200'
     if @photo.save
       redirect_to admin_photo_path(@photo)
     else
@@ -22,6 +24,7 @@ class Admin::PhotosController < ApplicationController
   end
 
   def edit
+    raise
     @photos = Photo.all
   end
 
