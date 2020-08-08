@@ -44,20 +44,29 @@
 }
 .carousel-caption {
   display: block !important;
+  @include for-medium-devices-up {
+    bottom: 10vh;
+  }
 }
 .inherit {
   height: 100%;
 }
 .mid-logo {
+  max-width: 700px;
   width: 40%;
   position: absolute;
   top: 30%;
   left: 30%;
   z-index: 100;
+  @include for-medium-devices-down {
+    width: 60%;
+    left: 20%;
+    right: 20%;
+  }
   @include for-small-devices-down {
-    width: 80%;
-    left: 10%;
-    right: 10%;
+    width: 90%;
+    left: 5%;
+    right: 5%;
   }
 }
 .rel {
@@ -65,6 +74,9 @@
 }
 .bottom-30 {
   bottom: 30vh !important;
+  @include for-medium-devices-up {
+    bottom: 20vh !important;
+  }
 }
 
 .cycle-holder {
