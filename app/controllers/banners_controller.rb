@@ -30,7 +30,6 @@ class BannersController < ApplicationController
     if @banner.update(banner_params)
       redirect_to root_path, notice: 'Banner was successfully updated.'
     else
-      binding.pry
       render :edit
     end
   end
