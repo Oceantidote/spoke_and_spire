@@ -8,6 +8,7 @@ class BannersController < ApplicationController
 
   # GET /banners/1/edit
   def edit
+    binding.pry
   end
 
   # POST /banners
@@ -29,6 +30,7 @@ class BannersController < ApplicationController
     if @banner.update(banner_params)
       redirect_to root_path, notice: 'Banner was successfully updated.'
     else
+      binding.pry
       render :edit
     end
   end
@@ -53,7 +55,7 @@ class BannersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def banner_params
-      params.require(:banner).permit(:title, :slide_one_id, :slide_two_id, :slide_three_id, :slide_four_id, :slide_four_title, :card_one_id, :card_two_id, :card_three_id, :card_one_content, :card_two_content, :card_three_content, :slide_one_image_alt_text, :slide_one_title, :slide_two_image_alt_text, :slide_two_title, :slide_three_image_alt_text, :slide_three_title, :card_one_title, :card_one_image_alt_text, :card_two_image_alt_text, :card_two_title, :card_three_title, :card_three_image_alt_text, :slide_one_image_alt_text, :slide_one_title, :slide_two_image_alt_text, :slide_two_title, :slide_three_image_alt_text, :slide_three_title, :card_one_title, :card_one_image_alt_text, :card_two_image_alt_text, :card_two_title, :card_three_title, :card_three_image_alt_text)
+      params.require(:banner).permit(:slide_one_id, :slide_two_id, :slide_three_id, :slide_four_id, :slide_four_title, :card_one_id, :card_two_id, :card_three_id, :card_one_content, :card_two_content, :card_three_content, :slide_one_image_alt_text, :slide_one_title, :slide_two_image_alt_text, :slide_two_title, :slide_three_image_alt_text, :slide_three_title, :card_one_title, :card_one_image_alt_text, :card_two_image_alt_text, :card_two_title, :card_three_title, :card_three_image_alt_text, :slide_one_image_alt_text, :slide_one_title, :slide_two_image_alt_text, :slide_two_title, :slide_three_image_alt_text, :slide_three_title, :card_one_title, :card_one_image_alt_text, :card_two_image_alt_text, :card_two_title, :card_three_title, :card_three_image_alt_text)
     end
 end
 
