@@ -24,7 +24,6 @@ class Admin::PhotosController < ApplicationController
   end
 
   def edit
-    raise
     @photos = Photo.all
   end
 
