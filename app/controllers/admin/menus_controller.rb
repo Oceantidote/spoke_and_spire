@@ -3,7 +3,7 @@ class Admin::MenusController < ApplicationController
   before_action :set_menu, only: [:show, :edit, :destroy, :update, :use_today]
   def index
     @today_menu = Menu.where(today: true).first || Menu.first
-    @menus = Menu.where.not(today: true)
+    @menus = Menu.where.not(today: true, id: @today_menu.id)
   end
 
   def new
