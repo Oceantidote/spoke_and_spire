@@ -10,24 +10,24 @@
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div class="carousel-item active" style="background-image: url('<%= url_for @banner.slide_one.photo %>')">
-          <div class="carousel-caption bottom-30 d-none d-md-block">
+          <div class="carousel-caption bottom-30 d-md-block">
             <h2 class="display-4"><%= @banner.slide_one_title %></h2>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_two.photo %>')">
-          <div class="carousel-caption bottom-30 d-none d-md-block">
+          <div class="carousel-caption bottom-30 d-md-block">
             <h2 class="display-4"><%= @banner.slide_two_title %></h2>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_three.photo %>')">
-          <div class="carousel-caption bottom-30 d-none d-md-block">
+          <div class="carousel-caption bottom-30 d-md-block">
             <h2 class="display-4"><%= @banner.slide_three_title %></h2>
           </div>
         </div>
         <div class="carousel-item" style="background-image: url('<%= url_for @banner.slide_four.photo %>')">
-          <div class="carousel-caption bottom-30 d-none d-md-block">
+          <div class="carousel-caption bottom-30 d-md-block">
             <h2 class="display-4"><%= @banner.slide_four_title %></h2>
           </div>
         </div>
@@ -114,7 +114,7 @@
     </div>
   </div>
   <div class="container pv-big">
-    <h1 class="tc pv-big"><span class="mr-4">😊 </span> This is what life here looks like <span class="ml-4"> 😊</span></h1>
+    <h1 class="tc pv-big"><span class="mr-4 md-none">😊 </span> This is what life here looks like <span class="ml-4"> 😊</span></h1>
     <div class="row pv-big">
       <% @photos.each do |photo| %>
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 p-0">
@@ -126,7 +126,7 @@
         </div>
       <% end %>
     </div>
-    <h1 id="events" class="tc pv-big"><span class="mr-4">📅 </span> Here are our events we have coming up  <span class="ml-4"> 📅</span></h1>
+    <h1 id="events" class="tc pv-big"><span class="mr-4 md-none">📅 </span> Here are our events we have coming up  <span class="ml-4"> 📅</span></h1>
     <div class="row pv-big">
       <% @upcoming_events.each do |event| %>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">
@@ -142,7 +142,7 @@
         </div>
       <% end %>
     </div>
-    <h1 class="tc pv-mid"><span class="mr-4">🚴 </span> and when your'e done, off you cycle  <span class="ml-4">🚴</span></h1>
+    <h1 class="tc pv-mid"><span class="mr-4 md-none">🚴 </span> and when your'e done, off you cycle  <span class="ml-4">🚴</span></h1>
     <div class="jc">
       <%= image_tag "cyclist.gif", alt: "And when you're done, just hop on your bike and off you pop with your lunchbox", class: "gif" %>
     </div>
