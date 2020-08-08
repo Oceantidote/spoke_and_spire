@@ -8,7 +8,6 @@ class BannersController < ApplicationController
 
   # GET /banners/1/edit
   def edit
-    binding.pry
   end
 
   # POST /banners
