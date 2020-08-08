@@ -1,18 +1,16 @@
 <div class="container pb-5 pt-2">
   <h1 class="tc pt-4 mt-4"><%= @event.title %></h1>
   <h3 class="tc pt-1"><%= @event.good_title %></h3>
-  <h5 class="pt-4 pb-4 tc"><%= @event.description %></h5>
   <div class="container">
-    <%= @event.content %>
-
+    <h5 class="pt-4 pb-4 tc"><%= @event.content %></h5>
   </div>
 </div>
 <div class="container">
   <div class="row pv-big">
-    <% @event.photos.each do |event| %>
+    <% @event.photos.each do |photo| %>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">
         <div class="article-container">
-          <div class="article-img-holder image" style="background-image: url(<%= url_for @event.photos.first %>)"></div>
+          <div class="article-img-holder image" style="background-image: url(<%= url_for photo %>)"></div>
         </div>
       </div>
     <% end %>
