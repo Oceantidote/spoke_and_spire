@@ -1,5 +1,6 @@
 <div class="container pv-big">
   <h1 class="tc">Photo Management</h1>
+  <%= link_to "New Photo", new_admin_photo_path, class: "btn btn-primary"  %>
   <div class="row pv-big">
     <% @photos.each do |photo| %>
       <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 p-0">

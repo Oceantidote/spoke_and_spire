@@ -1,22 +1,32 @@
-<div class="row">
+<div class="row pv-big">
   <div class="col-sm-12 col-md-6 offset-md-3">
+    <% if @photo.id %>
+      <h3 class="tc">Edit Photo</h3>
+    <% else %>
+      <h3 class="tc">New Photo</h3>
+    <% end %>
     <%= simple_form_for [:admin, @photo] do |f| %>
-        <div class="flex-btwn fs">
-          <div class="w50 pt-30 photo-hol form-group">
-            <p>Photo</p>
-            <%= f.file_field :photo, required: true%>
-          </div>
-          <div class="w50">
-            <%= f.input :title %>
-            <%= f.input :alt %>
-          </div>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="flex-btwn fs">
+        <div class="w50 pt-30 photo-hol form-group">
+          <p>Photo</p>
+          <%= f.file_field :photo, required: true%>
+          <% if @photo.errors.any? %>
+            <p style="color: red;"><%= @photo.errors.messages[:photo][0] %></p>
+          <% end %>
         </div>
-        <%= f.button :submit, class: "btn btn-primary mt-10" %>
-        <% if @photo.photo.attached? %>
-          <div class="img-hol">
-            <%= image_tag @photo.photo, alt: @photo.alt %>
-          </div>
-        <% end %>
+        <div class="w50">
+          <%= f.input :title %>
+          <%= f.input :alt %>
+        </div>
+      </div>
+      <%= f.button :submit, class: "btn btn-primary mt-10" %>
+      <% if @photo.photo.attached? && @photo.errors.empty? %>
+        <div class="img-hol">
+          <%= image_tag @photo.photo, alt: @photo.alt %>
+        </div>
+      <% end %>
     <% end %>
 
   </div>
