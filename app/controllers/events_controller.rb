@@ -27,10 +27,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    event_params[:photos].each do |image|
-      mini_image = MiniMagick::Image.new(image.tempfile.path)
-      mini_image.resize '1200x1200'
-    end
     if @event.save
       redirect_to @event
     else
