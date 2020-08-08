@@ -15,7 +15,7 @@
           <%= link_to "Homepage", edit_banner_path(Banner.first), class: "nav-link" %>
         </li>
         <li class="nav-item active">
-          <%= link_to "Events", events_path, class: "nav-link" %>
+          <%= link_to "Events", "events_path", class: "nav-link" %>
         </li>
         <li class="nav-item active">
           <%= link_to "Promotions", admin_promotions_path, class: "nav-link" %>
@@ -37,7 +37,7 @@
           <%= link_to "Gallery", gallery_path, class: "nav-link" %>
         </li>
         <li class="nav-item active">
-          <%= link_to "Events", events_path, class: "nav-link" %>
+          <%= link_to "Events", "#events", class: "nav-link" %>
         </li>
       <% end %>
     </ul>
