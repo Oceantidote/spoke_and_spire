@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :photos
       resources :promotions
+      resources :drinks, only: [:new, :create, :edit, :update, :destroy]
       resources :menus do
         member do
           patch :use_today

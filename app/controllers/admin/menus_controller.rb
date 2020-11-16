@@ -4,6 +4,10 @@ class Admin::MenusController < ApplicationController
   def index
     @today_menu = Menu.where(today: true).first || Menu.first
     @menus = Menu.where.not(today: true, id: @today_menu.id)
+    @wines = Drink.where(category: "Wines from around the world")
+    @lagers = Drink.where(category: "Continental Lagers")
+    @ales = Drink.where(category: "Craft Ales")
+    @ciders = Drink.where(category: "British Ciders")
   end
 
   def new

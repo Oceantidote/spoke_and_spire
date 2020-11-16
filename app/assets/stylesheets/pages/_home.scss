@@ -385,6 +385,23 @@ img:hover {
 .article-img-holder:hover {
   transform: scale(1.2);
 }
+.drinks-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 15px;
+}
+.drink-image {
+  width: 100px;
+  height: 100px;
+
+}
+.drink-head {
+  padding-left: 15px;
+  h4 {
+    color: white;
+  }
+}
 
 
 

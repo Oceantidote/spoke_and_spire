@@ -114,7 +114,6 @@
     </div>
   </div>
   <div class="container pv-big">
-    <h1 class="tc pv-big"><span class="mr-4 md-none">😊 </span> This is what life here looks like <span class="ml-4"> 😊</span></h1>
     <div class="row pv-big">
       <% @photos.each do |photo| %>
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 p-0">
@@ -128,27 +127,38 @@
     </div>
     <h1 id="events" class="tc pv-big"><span class="mr-4 md-none">📅 </span> Here are our events we have coming up  <span class="ml-4"> 📅</span></h1>
     <div class="row pv-big">
-      <% @upcoming_events.each do |event| %>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">
-          <%= link_to event_path(event) do  %>
-            <div class="article-container">
-              <div class="article-img-holder image" style="background-image: url(<%= url_for event.photos.first %>)"></div>
-              <div class="event-title">
-                <h3><%= event.title %></h3>
-                <h5><%= event.good_title %></h5>
+      <% if @upcoming_events.empty? %>
+        <h4 class="tc">I'm afraid we don't have any events currently, but check back soon to as we will be adding some soon!</h4>
+      <% else %>
+        <% @upcoming_events.each do |event| %>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">
+            <%= link_to event_path(event) do  %>
+              <div class="article-container">
+                <div class="article-img-holder image" style="background-image: url(<%= url_for event.photos.first %>)"></div>
+                <div class="event-title">
+                  <h3><%= event.title %></h3>
+                  <h5><%= event.good_title %></h5>
+                </div>
               </div>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="jc pv-mid">
-      <%= image_tag "woman_cyclist.png", alt: "Men not so much", title: "Female cyclists make it look easy", class: "smlfat mr-4  md-none" %>
-      <h1 class="tc pv-mid">and when you're all done, off you cycle</h1>
-      <%= image_tag "fat_cyclist.png", alt: "Men not so much", title: "Female cyclists make it look easy", class: "ssmlfat ml-4" %>
-    </div>
-    <div class="jc">
-      <%= image_tag "cyclist.gif", alt: "And when you're done, just hop on your bike and off you pop with your lunchbox", class: "gif" %>
+    <div class="pv-mid">
+      <h1 class="tc pv-big"><span class="mr-4 md-none">⏱️ </span>Opening Times<span class="ml-4"> ⏱️</span></h1>
+      <h4 class="tc">Bar</h4>
+      <h5 class="tc">10:00 to late - Monday to Friday</h5>
+      <h5 class="tc">9:30 to late Saturday & Sunday</h5>
+      <br>
+      <h4 class="tc">Kitchen</h4>
+      <h5 class="tc">Monday to Saturday</h5>
+      <h5 class="tc">Panini & wraps 12:00 - 15:00</h5>
+      <h5 class="tc">Panini only 15:00 to 18:00</h5>
+      <h5 class="tc">Pizzas 18:00 to 21:00</h5>
+      <br>
+      <h5 class="tc">Sunday</h5>
+      <h5 class="tc">Pizzas 12:00 to 20:00</h5>
     </div>
     <div class="pv-mid">
       <h1 class="tc pt-5">If you want to reach us..</h1>

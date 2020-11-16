@@ -11,6 +11,10 @@ class PagesController < ApplicationController
 
   def menu
     @menu = Menu.where(today: true).first || Menu.order(created_at: :desc).first
+    @wines = Drink.where(category: "Wines from around the world")
+    @lagers = Drink.where(category: "Continental Lagers")
+    @ales = Drink.where(category: "Craft Ales")
+    @ciders = Drink.where(category: "British Ciders")
   end
 
   def gallery

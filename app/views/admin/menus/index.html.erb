@@ -1,7 +1,7 @@
 <div class="container-fluid pv-mid" style="background-color: black; min-height: 100vh;">
-  <%= link_to "New Menu", new_admin_menu_path, class: "btn btn-primary" %>
   <div class="row">
     <div class="col-sm-12 col-md-8 offset-md-2">
+      <%= link_to "New Menu", new_admin_menu_path, class: "btn btn-primary" %>
       <h2 class="tc pb-4" style="color: white;">Today's Menu:</h2>
       <div class="tc">
         <%= render "shared/menu_card", menu: @today_menu, small: false %>
@@ -19,7 +19,76 @@
           </div>
         <% end %>
       <% end %>
-
+      <br>
+    </div>
+    <div class="col-sm-12 col-md-8 offset-md-2">
+      <h2 class="tc pt-4 pb-4" style="color: white;">Drinks</h2>
+      <h3 class="tc pt-4">Craft Ales</h3>
+      <div class="row mt-4">
+        <% @ales.each do |drink| %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="drinks-card">
+              <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <div class="drink-head">
+                <h4><%= drink.name %></h4>
+                <h5><%= drink.description %></h5>
+                <%= link_to "Edit", edit_admin_drink_path(drink) %>
+                <%= link_to "Delete", admin_drink_path(drink), method: :delete %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <h3 class="tc pt-4">Continental Lagers</h3>
+      <div class="row mt-4">
+        <% @lagers.each do |drink| %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="drinks-card">
+              <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <div class="drink-head">
+                <h4><%= drink.name %></h4>
+                <h5><%= drink.description %></h5>
+                <%= link_to "Edit", edit_admin_drink_path(drink) %>
+                <%= link_to "Delete", admin_drink_path(drink), method: :delete %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <h3 class="tc pt-4">British Ciders</h3>
+      <div class="row mt-4">
+        <% @ciders.each do |drink| %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="drinks-card">
+              <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <div class="drink-head">
+                <h4><%= drink.name %></h4>
+                <h5><%= drink.description %></h5>
+                <%= link_to "Edit", edit_admin_drink_path(drink) %>
+                <%= link_to "Delete", admin_drink_path(drink), method: :delete %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <h3 class="tc pt-4">Wines from around the world</h3>
+      <div class="row mt-4">
+        <% @wines.each do |drink| %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="drinks-card">
+              <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <div class="drink-head">
+                <h4><%= drink.name %></h4>
+                <h5><%= drink.description %></h5>
+                <%= link_to "Edit", edit_admin_drink_path(drink) %>
+                <%= link_to "Delete", admin_drink_path(drink), method: :delete %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        
+      </div>
+      <%= link_to "New Drink", new_admin_drink_path, class: "btn btn-primary" %>
     </div>
   </div>
   <hr>
