@@ -7,7 +7,6 @@
         </div>
       </div>
       <br>
-      <h2 class="tc pt-4 pb-4" style="color: white;">Drinks</h2>
       <h3 class="tc pt-4 pb-4" style="color: white;">Craft Ales</h3>
       <div class="row mt-4">
         <% @ales.each do |drink| %>
@@ -17,8 +16,6 @@
               <div class="drink-head">
                 <h4><%= drink.name %></h4>
                 <h5><%= drink.description %></h5>
-                <%= link_to "Edit", edit_admin_drink_path(drink) %>
-                <%= link_to "Delete", admin_drink_path(drink), method: :delete %>
               </div>
             </div>
           </div>
@@ -33,8 +30,6 @@
               <div class="drink-head">
                 <h4><%= drink.name %></h4>
                 <h5><%= drink.description %></h5>
-                <%= link_to "Edit", edit_admin_drink_path(drink) %>
-                <%= link_to "Delete", admin_drink_path(drink), method: :delete %>
               </div>
             </div>
           </div>
@@ -49,8 +44,6 @@
               <div class="drink-head">
                 <h4><%= drink.name %></h4>
                 <h5><%= drink.description %></h5>
-                <%= link_to "Edit", edit_admin_drink_path(drink) %>
-                <%= link_to "Delete", admin_drink_path(drink), method: :delete %>
               </div>
             </div>
           </div>
@@ -65,8 +58,6 @@
               <div class="drink-head">
                 <h4><%= drink.name %></h4>
                 <h5><%= drink.description %></h5>
-                <%= link_to "Edit", edit_admin_drink_path(drink) %>
-                <%= link_to "Delete", admin_drink_path(drink), method: :delete %>
               </div>
             </div>
           </div>
