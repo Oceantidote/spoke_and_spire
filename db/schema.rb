@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_122054) do
+ActiveRecord::Schema.define(version: 2020_11_17_124041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,12 @@ ActiveRecord::Schema.define(version: 2020_11_16_122054) do
     t.bigint "card_three_id"
     t.bigint "slide_four_id"
     t.string "slide_four_title"
+    t.string "bar_week"
+    t.string "bar_wknd"
+    t.string "kitch_wk_wraps"
+    t.string "kitch_wk_panini"
+    t.string "kitch_wk_pizza"
+    t.string "kitch_wknd_pizza"
     t.index ["card_one_id"], name: "index_banners_on_card_one_id"
     t.index ["card_three_id"], name: "index_banners_on_card_three_id"
     t.index ["card_two_id"], name: "index_banners_on_card_two_id"

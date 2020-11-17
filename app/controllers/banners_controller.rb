@@ -53,7 +53,7 @@ class BannersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def banner_params
-      params.require(:banner).permit(:slide_one_id, :slide_two_id, :slide_three_id, :slide_four_id, :slide_four_title, :card_one_id, :card_two_id, :card_three_id, :card_one_content, :card_two_content, :card_three_content, :slide_one_image_alt_text, :slide_one_title, :slide_two_image_alt_text, :slide_two_title, :slide_three_image_alt_text, :slide_three_title, :card_one_title, :card_one_image_alt_text, :card_two_image_alt_text, :card_two_title, :card_three_title, :card_three_image_alt_text, :slide_one_image_alt_text, :slide_one_title, :slide_two_image_alt_text, :slide_two_title, :slide_three_image_alt_text, :slide_three_title, :card_one_title, :card_one_image_alt_text, :card_two_image_alt_text, :card_two_title, :card_three_title, :card_three_image_alt_text)
+      params.require(:banner).permit(:bar_week, :bar_wknd, :kitch_wk_wraps, :kitch_wk_panini, :kitch_wk_pizza, :kitch_wknd_pizza, :slide_one_id, :slide_two_id, :slide_three_id, :slide_four_id, :slide_four_title, :card_one_id, :card_two_id, :card_three_id, :card_one_content, :card_two_content, :card_three_content, :slide_one_image_alt_text, :slide_one_title, :slide_two_image_alt_text, :slide_two_title, :slide_three_image_alt_text, :slide_three_title, :card_one_title, :card_one_image_alt_text, :card_two_image_alt_text, :card_two_title, :card_three_title, :card_three_image_alt_text, :slide_one_image_alt_text, :slide_one_title, :slide_two_image_alt_text, :slide_two_title, :slide_three_image_alt_text, :slide_three_title, :card_one_title, :card_one_image_alt_text, :card_two_image_alt_text, :card_two_title, :card_three_title, :card_three_image_alt_text)
     end
 end
 

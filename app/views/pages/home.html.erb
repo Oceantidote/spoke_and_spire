@@ -148,17 +148,17 @@
     <div class="pv-mid">
       <h1 class="tc pv-big"><span class="mr-4 md-none">⏱️ </span>Opening Times<span class="ml-4"> ⏱️</span></h1>
       <h4 class="tc">Bar</h4>
-      <h5 class="tc">10:00 to late - Monday to Friday</h5>
-      <h5 class="tc">9:30 to late - Saturday & Sunday</h5>
+      <h5 class="tc"><%= @banner.bar_week %> - Monday to Friday</h5>
+      <h5 class="tc"><%= @banner.bar_wknd %> - Saturday & Sunday</h5>
       <br>
       <h4 class="tc">Kitchen</h4>
       <h5 class="tc">Monday to Saturday</h5>
-      <h5 class="tc">Panini & wraps 12:00 - 15:00</h5>
-      <h5 class="tc">Panini only 15:00 to 18:00</h5>
-      <h5 class="tc">Pizzas 18:00 to 21:00</h5>
+      <h5 class="tc">Panini & wraps <%= @banner.kitch_wk_wraps %></h5>
+      <h5 class="tc">Panini only <%= @banner.kitch_wk_panini %></h5>
+      <h5 class="tc">Pizzas <%= @banner.kitch_wk_pizza %></h5>
       <br>
       <h5 class="tc">Sunday</h5>
-      <h5 class="tc">Pizzas 12:00 to 20:00</h5>
+      <h5 class="tc">Pizzas <%= @banner.kitch_wknd_pizza %></h5>
     </div>
     <div class="pv-mid">
       <h1 class="tc pt-5">If you want to reach us..</h1>
