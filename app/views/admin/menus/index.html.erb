@@ -4,6 +4,7 @@
       <%= link_to "New Menu", new_admin_menu_path, class: "btn btn-primary" %>
       <h2 class="tc pb-4" style="color: white;">Today's Menu:</h2>
       <div class="tc">
+        <%= link_to "edit", edit_admin_menu_path(@today_menu) %>
         <%= render "shared/menu_card", menu: @today_menu, small: false %>
       </div>
       <br>
@@ -16,6 +17,7 @@
             <%= link_to "Use Now", use_today_admin_menu_path(menu), class: "mr-4 btn btn-primary", method: :patch %>
             <h3 style="color: white;"><%= menu.title %></h3>
             <div class="menu-last-used"><%= menu.last_used %></div>
+            <%= link_to "edit", edit_admin_menu_path(menu), class: "ml-4" %>
           </div>
         <% end %>
       <% end %>
