@@ -9,6 +9,7 @@ class Banner < ApplicationRecord
   has_rich_text :card_one_content
   has_rich_text :card_two_content
   has_rich_text :card_three_content
+  has_rich_text :opening_times
 
   validates :slide_one_id, presence: true
   validates :slide_two_id, presence: true
