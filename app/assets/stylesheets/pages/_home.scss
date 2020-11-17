@@ -73,7 +73,7 @@
   position: relative;
 }
 .bottom-30 {
-  bottom: 30vh !important;
+  bottom: 10vh !important;
   @include for-medium-devices-up {
     bottom: 20vh !important;
   }
