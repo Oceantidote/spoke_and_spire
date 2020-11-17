@@ -43,7 +43,7 @@ class Admin::MenusController < ApplicationController
       if @menu.today
         Menu.where.not(id: @menu.id).where(today: true).where.not(id: @menu.id).update_all(today: false)
       end
-      redirect_to edit_admin_menus_path
+      redirect_to admin_menus_path
     else
       render :edit
     end
