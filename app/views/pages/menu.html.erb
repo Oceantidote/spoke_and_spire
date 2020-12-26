@@ -12,7 +12,9 @@
         <% @ales.each do |drink| %>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="drinks-card">
-              <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <% if drink.photo.attached? %>
+                <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <% end %>
               <div class="drink-head">
                 <h4><%= drink.name %></h4>
                 <h5><%= drink.description %></h5>
@@ -26,7 +28,9 @@
         <% @lagers.each do |drink| %>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="drinks-card">
-              <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <% if drink.photo.attached? %>
+                <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <% end %>
               <div class="drink-head">
                 <h4><%= drink.name %></h4>
                 <h5><%= drink.description %></h5>
@@ -40,7 +44,9 @@
         <% @ciders.each do |drink| %>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="drinks-card">
-              <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <% if drink.photo.attached? %>
+                <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <% end %>
               <div class="drink-head">
                 <h4><%= drink.name %></h4>
                 <h5><%= drink.description %></h5>
@@ -54,7 +60,9 @@
         <% @wines.each do |drink| %>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="drinks-card">
-              <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <% if drink.photo.attached? %>
+                <%= image_tag drink.photo, alt: drink.name, title: drink.name, class: "drink-image" %>
+              <% end %>
               <div class="drink-head">
                 <h4><%= drink.name %></h4>
                 <h5><%= drink.description %></h5>
@@ -62,7 +70,7 @@
             </div>
           </div>
         <% end %>
-        
+
       </div>
     </div>
   </div>
